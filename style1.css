@@ -1,21 +1,18 @@
-/* 세로 모드 */
 .icon-bar {
   width: 90px;
   background-color: #555;
 }
 
-/* 해당 class의 모든 a tag */
 .icon-bar a {
   display: block; /* a : inline -> icon-bar div 내에서 위치 수정을 위해 block 처리 */
   text-align: center; /*a : block -> 내부 img(inline) 요소 중간 정렬 */
   padding: 16px;
-  transition: all 1s, ease; /* a tag의 action이 취하질 때 작동*/
+  transition: all 1s, ease; /* 왜 적용한 것인지 잘 모르겠음 */
   color: white;
   font-size: 36px;
 }
 
 .icon-bar a:hover {
-  /* hover: mouse가 올려졌을 때 취해지는 action */
   background-color: #000;
 }
 
