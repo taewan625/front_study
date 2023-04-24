@@ -1,24 +1,32 @@
-/* 세로 모드 */
-.icon-bar {
-  width: 90px;
-  background-color: #555;
+.container {
+  /* display : block으로 할 것인지 inline으로 할 것인지 정해줌 */
+  display: flexbox;
+  /* cursor : 해당 div에 접근시 커서 변경 */
+  cursor: pointer;
 }
 
-/* 해당 class의 모든 a tag */
-.icon-bar a {
-  display: block; /* a : inline -> icon-bar div 내에서 위치 수정을 위해 block 처리 */
-  text-align: center; /*a : block -> 내부 img(inline) 요소 중간 정렬 */
-  padding: 16px;
-  transition: all 1s, ease; /* a tag의 action이 취하질 때 작동*/
-  color: white;
-  font-size: 36px;
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  /* transition : action이 일어나는 시간 */
+  transition: 1s;
 }
 
-.icon-bar a:hover {
-  /* hover: mouse가 올려졌을 때 취해지는 action */
-  background-color: #000;
+.change .bar1 {
+  /* 어떻게 작동되는지 헷갈리면 translate, rotate 따로 따로 작동시켜보기 */
+  /* translateY : 세로로 내려감 */
+  /* rotate : div 중심점을 기준으로 회전 */
+  transform: translateY(11px) rotate(45deg);
 }
 
-.active {
-  background-color: #04aa6d;
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translateY(-11px) rotate(-45deg);
 }
