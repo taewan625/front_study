@@ -17,10 +17,11 @@
 
 .panel {
   padding: 0 18px;
-  display: none;
+  /* display: none; none 있으면 작동안함*/
+  max-height: 0; /*display: none 대신에 display heigth를 0으로 둬서 없는 것처럼 둔다.*/
   background-color: white;
   overflow: hidden; /* 부모 영역 바깥으로 나가면 해당 부분 자르기 */
-  transition: 0.4s; /* 적용 안됨*/
+  transition: max-height 0.2s ease-out; /* 적용 됨*/
 }
 
 /* ::after 는 가상 요소로 content라는 가상 요소가 생성된다. */

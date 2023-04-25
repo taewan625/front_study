@@ -9,11 +9,13 @@ function handleShowAccordion() {
   // nextSibling : 현 element의 다음 모든 것(element, text)를 상관 없이 가져옴
   let panel = this.nextElementSibling;
 
-  // 숨겨진 글 보여주기 1 - 딱딱하게 생성
-  if (panel.style.display === "block") {
-    panel.style.display = "none";
+  // 숨겨진 글 보여주기 2 - transition 적용
+  if (panel.style.maxHeight) {
+    // maxHeight: element 내용영역 높이의 최대값 지정
+    panel.style.maxHeight = null;
   } else {
-    panel.style.display = "block";
+    panel.style.maxHeight = panel.scrollHeight + "px";
+    // scrollHeight: 스크롤 할 수 있는 최대 길이
   }
 }
 
