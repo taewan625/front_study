@@ -1,32 +1,38 @@
-.container {
-  /* display : block으로 할 것인지 inline으로 할 것인지 정해줌 */
-  display: flexbox;
-  /* cursor : 해당 div에 접근시 커서 변경 */
+.accordion {
+  background-color: #eee;
+  color: #444;
   cursor: pointer;
+  padding: 18px; /* 실제 text가 들어갈 공간보다 padding이 크게 되면 block사이즈가 커진다.*/
+  width: 100%;
+  border: none;
+  text-align: left; /* 글자 위치가 왼쪽으로 붙음*/
+  outline: none; /*border와 차이점 : outline은 단지 테두리만 생기는 것 뿐, border은 두께만큼 박스의 전체 크기도 커진다.*/
+  transition: 0.4s;
 }
 
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px 0;
-  /* transition : action이 일어나는 시간 */
-  transition: 1s;
+.active,
+.accordion:hover {
+  background-color: #ccc;
 }
 
-.change .bar1 {
-  /* 어떻게 작동되는지 헷갈리면 translate, rotate 따로 따로 작동시켜보기 */
-  /* translateY : 세로로 내려감 */
-  /* rotate : div 중심점을 기준으로 회전 */
-  transform: translateY(11px) rotate(45deg);
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden; /* 부모 영역 바깥으로 나가면 해당 부분 자르기 */
+  transition: 0.4s; /* 적용 안됨*/
 }
 
-.change .bar2 {
-  opacity: 0;
+/* ::after 는 가상 요소로 content라는 가상 요소가 생성된다. */
+.accordion::after {
+  content: "\02795";
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
 }
 
-.change .bar3 {
-  transform: translateY(-11px) rotate(-45deg);
+/* active::after가 .accordion::after보다 아래에 위치하므로 마지막 적용이 됨*/
+.active::after {
+  content: "\2796";
 }
