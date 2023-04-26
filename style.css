@@ -1,39 +1,86 @@
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px; /* 실제 text가 들어갈 공간보다 padding이 크게 되면 block사이즈가 커진다.*/
+/* navbar container */
+.navbar {
+  overflow: hidden; /*습관적으로 넣는건가?*/
+  background-color: #333;
+  font-family: Arial;
+}
+
+.navbar a {
+  float: left; /*float : tag 자체를 움직여주는 역할*/
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none; /*link 밑줄 없애줌*/
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* button도 h2 처럼 만들어주는 과정 */
+.dropdown button {
+  font-size: 16px;
+
+  border: none; /*button 테두리 없애기*/
+  outline: none; /*버튼 클릭시 생기는 포커스 표시 제거 */
+
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit; /*inherit : 조상의 color를 상속 받음*/
+  font: inherit; /*세로 정렬과 모바일에서 중요하다고 함*/
+  margin: 0; /*세로 정렬과 모바일에서 중요하다고 함*/
+}
+
+.navbar a:hover,
+.dropdown:hover,
+.dropbtn {
+  background-color: red;
+}
+
+/* 여기가 핵심 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
   width: 100%;
-  border: none;
-  text-align: left; /* 글자 위치가 왼쪽으로 붙음*/
-  outline: none; /*border와 차이점 : outline은 단지 테두리만 생기는 것 뿐, border은 두께만큼 박스의 전체 크기도 커진다.*/
-  transition: 0.4s;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /*그림자 방법*/
+  z-index: 1; /*position이 absolute, relative, fixed 같은 경우 적용, 숫자가 클수록 위로 쌓임. 팝업, 드롭다운 메뉴 만들 때 사용*/
 }
 
-.active,
-.accordion:hover {
+.dropdown-content .header {
+  background: red; /*background-color 보다 적용하는 범위가 더 넓다.*/
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
   background-color: #ccc;
+  height: 250px;
 }
 
-.panel {
-  padding: 0 18px;
-  /* display: none; none 있으면 작동안함*/
-  max-height: 0; /*display: none 대신에 display heigth를 0으로 둬서 없는 것처럼 둔다.*/
-  background-color: white;
-  overflow: hidden; /* 부모 영역 바깥으로 나가면 해당 부분 자르기 */
-  transition: max-height 0.2s ease-out; /* 적용 됨*/
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left; /*column에서 width를 33% 먹여서 가능하다*/
 }
 
-/* ::after 는 가상 요소로 content라는 가상 요소가 생성된다. */
-.accordion::after {
-  content: "\02795";
-  font-size: 13px;
-  color: #777;
-  float: right;
-  margin-left: 5px;
-}
-
-/* active::after가 .accordion::after보다 아래에 위치하므로 마지막 적용이 됨*/
-.active::after {
-  content: "\2796";
+.column a:hover {
+  background-color: #ddd;
 }
