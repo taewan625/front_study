@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <button aria-expanded="false" onclick="toggleMenu()">메뉴</button>
+    <!-- aria-expanded: 식별자 정도로 생각 하면 된다. -->
+    <ul id="dropdown-menu" style="display: none">
+      <li><a href="#">메뉴 항목 1</a></li>
+      <li><a href="#">메뉴 항목 2</a></li>
+      <li><a href="#">메뉴 항목 3</a></li>
+    </ul>
+
+    <script>
+      function toggleMenu() {
+        const button = document.querySelector("button");
+        const menu = document.querySelector("#dropdown-menu");
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", !expanded);
+        menu.style.display = expanded ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>

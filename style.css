@@ -1,102 +1,30 @@
-/* 초기 setting */
-/* * 은 모든 element에서 적용이 되는 것이지만 property가 box-sizing이기 때문에 block 요소만 적용된다. */
-* {
-  box-sizing: border-box; /*border-box는 자신의 부모 block 영역에서 벗어나지 못하는 것 == padding과 border 두께로 인한 size*/
-}
-
 body {
-  margin: 0; /*body를 browser 양끝까지 꽉 채우고 싶은 경우 - position: relative 필요 없음*/
-  /*position: relative;*/ /* body에 margin을 두고 싶고 dropdown-content가 해당 body width와 동일 적용하고 싶은 경우*/
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* navbar container */
-.navbar {
-  overflow: hidden; /*습관적으로 넣는건가?*/
-  background-color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a {
-  float: left; /*float : tag 자체를 움직여주는 역할*/
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none; /*link 밑줄 없애줌*/
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-/* button도 h2 처럼 만들어주는 과정 */
-.dropdown button {
-  font-size: 16px;
-
-  border: none; /*button 테두리 없애기*/
-  outline: none; /*버튼 클릭시 생기는 포커스 표시 제거 */
-
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit; /*inherit : 조상의 color를 상속 받음*/
-  font: inherit; /*세로 정렬과 모바일에서 중요하다고 함*/
-  margin: 0; /*세로 정렬과 모바일에서 중요하다고 함*/
-}
-
-.navbar a:hover,
-.dropdown:hover,
-.dropbtn {
+input:enabled,
+button:enabled {
   background-color: red;
 }
 
-/* 1. 핵심 : display 날리기, z-index로 상단에 두기*/
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 100%;
-  left: 0;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /*그림자 방법*/
-  z-index: 1; /*position이 absolute, relative, fixed 같은 경우 적용, 숫자가 클수록 위로 쌓임. 팝업, 드롭다운 메뉴 만들 때 사용*/
+input:disabled,
+button:disabled {
+  background-color: yellow;
 }
 
-.dropdown-content .header {
-  background: red; /*background-color 보다 적용하는 범위가 더 넓다.*/
-  padding: 16px;
-  color: white;
+button:focus,
+input:focus {
+  background-color: black;
 }
 
-/* 2. 핵심 : hover시 display block 처리 */
-.dropdown:hover .dropdown-content {
-  display: block;
+input[type="checkbox"]:checked {
+  transform: scale(2);
 }
 
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 10px;
-  background-color: #ccc;
-  height: 250px;
-}
-
-.column a {
-  float: none;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left; /*column에서 width를 33% 먹여서 가능하다*/
-}
-
-.column a:hover {
-  background-color: #ddd;
-}
-
-/*반응형 웹할 때 사용하는 것*/
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    height: auto;
-  }
+input[type="radio"]:checked {
+  transform: scale(3);
 }

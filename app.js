@@ -1,24 +1,20 @@
-const accordions = document.getElementsByClassName("accordion");
+const tabs = document.getElementsByClassName("tablinks");
 
-function handleShowAccordion() {
-  // 향상된 for문 사용시 let accordion = this; 작성 필요
-  // let accordion = this;
-  this.classList.toggle("active");
-
-  // nextElementSibling: 현 element의 다음 element만 가져옴
-  // nextSibling : 현 element의 다음 모든 것(element, text)를 상관 없이 가져옴
-  let panel = this.nextElementSibling;
-
-  // 숨겨진 글 보여주기 2 - transition 적용
-  if (panel.style.maxHeight) {
-    // maxHeight: element 내용영역 높이의 최대값 지정
-    panel.style.maxHeight = null;
-  } else {
-    panel.style.maxHeight = panel.scrollHeight + "px";
-    // scrollHeight: 스크롤 할 수 있는 최대 길이
+function openCity(evt, cityName) {
+  console.log(cityName);
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
-for (let accordion of accordions) {
-  accordion.addEventListener("click", handleShowAccordion);
+for (let tab of tabs) {
+  tab.addEventListener("click", openCity);
 }

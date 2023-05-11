@@ -2,38 +2,17 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      .abc {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .zoom {
-        padding: 50px;
-        background-color: green;
-        transition: transform 0.2s;
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-      }
-
-      .zoom:hover {
-        transform: scale(1.5);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Zoom on Hover</h1>
-    <p>Hover over the div element.</p>
-
-    <div class="abc">
-      <div class="zoom"></div>
-      <div class="zoom"></div>
-      <div class="zoom"></div>
-    </div>
+    <input type="text" disabled="disabled" />
+    <input type="text" value="enabled" />
+    <br />
+    <button disabled>button-disabled</button>
+    <button>button-abled</button>
+    <br />
+    <input type="checkbox" />
+    <br />
+    <input type="radio" />
   </body>
 </html>
